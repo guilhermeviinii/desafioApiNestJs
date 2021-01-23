@@ -1,0 +1,23 @@
+import { AuthModule } from './auth/auth.module';
+import { Module } from '@nestjs/common';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { UsuariosModule } from './usuarios/usuarios.module';
+import { MongooseModule } from '@nestjs/mongoose';
+import { APP_GUARD, Reflector } from '@nestjs/core';
+import { RolesGuard } from './auth/shared/roles.guard';
+import { JwtAuthGuard } from './auth/shared/jwt-auth.guard';
+
+@Module({
+
+  imports:
+    [
+      MongooseModule.forRoot('mongodb+srv://user:2366@cluster0.i2g0e.mongodb.net/usuarioApi?retryWrites=true&w=majority'),
+      UsuariosModule,
+      AuthModule,
+    ],
+  controllers: [AppController],
+  providers: [AppService,
+  ],
+})
+export class AppModule { }
