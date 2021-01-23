@@ -8,5 +8,5 @@ export const UsuarioSchema = new mongoose.Schema({
     estado: String,
     usuario: String,
     senha: String,
-    role: [],
+    role: Array,
 })

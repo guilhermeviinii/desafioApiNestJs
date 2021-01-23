@@ -4,9 +4,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { MongooseModule } from '@nestjs/mongoose';
-import { APP_GUARD, Reflector } from '@nestjs/core';
 import { RolesGuard } from './auth/shared/roles.guard';
-import { JwtAuthGuard } from './auth/shared/jwt-auth.guard';
+import { APP_GUARD } from '@nestjs/core';
 
 @Module({
 
@@ -18,6 +17,7 @@ import { JwtAuthGuard } from './auth/shared/jwt-auth.guard';
     ],
   controllers: [AppController],
   providers: [AppService,
+    
   ],
 })
 export class AppModule { }

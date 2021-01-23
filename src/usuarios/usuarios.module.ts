@@ -12,7 +12,8 @@ import { RolesGuard } from 'src/auth/shared/roles.guard';
         MongooseModule.forFeature([{ name: 'Usuario', schema: UsuarioSchema}])
     ],
     controllers: [UsuariosController],
-    providers: [UsuarioService]
+    providers: [UsuarioService,
+        ]
     ,
     exports: [UsuarioService]
 })

@@ -13,7 +13,7 @@ import { RolesGuard } from './shared/roles.guard';
 @Module({
     imports: [
         UsuariosModule,
-        PassportModule,
+        PassportModule.register({ defaultStrategy: 'bearer' }),
         JwtModule.register({
             secret: jwtConstants.secret,
             signOptions: { expiresIn: '3600s' }
@@ -21,7 +21,7 @@ import { RolesGuard } from './shared/roles.guard';
     ],
     controllers: [
         AuthController,],
-    providers: [{provide: APP_GUARD, useClass: RolesGuard},
+    providers: [
         AuthService,
         LocalStrategy,
         JwtStrategy
