@@ -28,6 +28,11 @@ User Admin
  -> Passoword: admin
  *Obs: Apenas esse user tem direitos para deletar e atualizar cadastros
 
+ JSON for Login
+      {
+        "usuario": "admin",
+        "senha": "admin,
+      }
 
 
 ```
