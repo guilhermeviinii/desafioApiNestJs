@@ -22,52 +22,65 @@ export class UsuariosController {
 
     @Get()
     @UseGuards(JwtAuthGuard, RolesGuard)
-    async getAll(@Res() res): Promise<any> {
+    async getAll(@Res() res, Data: Data): Promise<any> {
         const data = await this.usuarioService.getAll();
-        return res.status(HttpStatus.OK).json({
+         res.status(HttpStatus.OK).json({
+             Data: {
             statusCode: res.statusCode,
             message: 'Usuarios existentes',
-            data
+            data: data
+        }
         })
+        return Data
     }
     @Get(':id')
     @UseGuards(JwtAuthGuard, RolesGuard)
     async getById(@Param('id') id: string): Promise<Usuarios> {
         return this.usuarioService.getById(id);
     }
-    
+
     @Post()
-    async create(@Body() usuario: Usuarios, @Res() res): Promise<Usuarios> {
+    async create(@Body() usuario: Usuarios, @Res() res, Data: Data): Promise<any>  {
         if (!usuario.role) {
             usuario.role = [Role.User];
         }
         const data = await this.usuarioService.create(usuario);
-        return res.status(HttpStatus.OK).json({
+        res.status(HttpStatus.OK).json({
+            Data: {
             statusCode: res.statusCode,
             message: 'Usuário cadastrado com sucesso',
-            data
+            data: data
+        }
         })
+        return Data
     }
     @Put(':id')
     @UseGuards(JwtAuthGuard, RolesGuard)
-    @Roles(Role.Admin)   
-    async update(@Param('id') id: string, @Body() usuario: Usuarios, @Res() res): Promise<Usuarios> {
+    @Roles(Role.Admin)
+    async update(@Param('id') id: string, @Body() usuario: Usuarios, @Res() res): Promise<any>  {
         const data = await this.usuarioService.update(id, usuario)
-        return res.status(HttpStatus.OK).json({
+        res.status(HttpStatus.OK).json({
+            Data: {
             statusCode: res.statusCode,
             message: 'Usuário atualizado com sucesso',
-            data
+            data: data
+        }
         })
+
+        return Data
     }
     @Delete(':id')
     @UseGuards(JwtAuthGuard, RolesGuard)
-    @Roles(Role.Admin)       
-    async delete(@Req() request: Usuarios,@Param('id') id: string, @Res() res, Data: Data) {
+    @Roles(Role.Admin)
+    async delete(@Req() request: Usuarios, @Param('id') id: string, @Res() res, Data: Data): Promise<any> {
         this.usuarioService.delete(id)
-        console.log(res.user)
-        return res.status(HttpStatus.OK).json({
-            statusCode: res.statusCode,            
-            message: 'Usuário deletado com sucesso',
+        res.status(HttpStatus.OK).json({
+            Data: {
+                statusCode: res.statusCode, 
+                message: 'Usuário deletado com sucesso',
+                data: []          
+            }        
         })
+        return Data
     }
 }

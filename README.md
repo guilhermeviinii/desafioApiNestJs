@@ -19,8 +19,12 @@ $ npm run start:dev
 ## Test
 
 ```bash
+
+
 http://localhost:3000/usuarios -> Get, Post, Put, Delete
-http://localhost:3000/auth/login -> for Login
+
+
+POST: http://localhost:3000/auth/login -> for Login
 
 
 User Admin
@@ -52,7 +56,7 @@ Após efetuar o login usar o acess_token gerado para ter autorização para os o
 
 -> PUT: http://localhost:3000/usuarios/:id 
 
-> DELETE: http://localhost:3000/usuarios/:id
+-> DELETE: http://localhost:3000/usuarios/:id
 
 
 ```
