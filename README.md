@@ -24,7 +24,12 @@ http://localhost:3000/auth/login -> for Login
 
 
 User Admin
- -> User: Admin
- -> Passoword: Admin
+ -> User: admin
+ -> Passoword: admin
  *Obs: Apenas esse user tem direitos para deletar e atualizar cadastros
+
+
+ <p> É necessário criar uma conta primeiro, role default = "user" (Não possui direitos para deletar, atulizar. Apenas visualizar). </p>
+
+<p>Para devidos testes usar user Admin!</p>
 ```
