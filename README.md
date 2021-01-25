@@ -37,6 +37,24 @@ User Admin
 Após efetuar o login usar o acess_token gerado para ter autorização para os outros caminhos referencia -> http://localhost:3000/usuarios
 
 
+-> GET: http://localhost:3000/usuarios
+
+-> POST: http://localhost:3000/usuarios
+          JSON for criar uma nova conta
+    {
+                "nome": "",
+                "idade": ,
+                "cidade": "",
+                "estado": "",
+                "usuario": "",
+                "senha": ""
+    }
+
+-> PUT: http://localhost:3000/usuarios/:id 
+
+> DELETE: http://localhost:3000/usuarios/:id
+
+
 ```
 ## Note
  <p> É necessário criar uma conta primeiro, role default = "user" (Não possui direitos para deletar, atulizar. Apenas visualizar). </p>
