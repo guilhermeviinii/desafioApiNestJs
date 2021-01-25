@@ -6,6 +6,7 @@ import { LocalAuthGuard } from 'src/auth/shared/local-auth.guard';
 import { Role } from 'src/auth/shared/role.enum';
 import { Roles } from 'src/auth/shared/roles.decorator';
 import { RolesGuard } from 'src/auth/shared/roles.guard';
+import { Data } from './shared/Data';
 import { UsuarioService } from './shared/usuario.service';
 import { Usuarios } from './shared/usuarios';
 
@@ -61,7 +62,7 @@ export class UsuariosController {
     @Delete(':id')
     @UseGuards(JwtAuthGuard, RolesGuard)
     @Roles(Role.Admin)       
-    async delete(@Req() request: Usuarios,@Param('id') id: string, @Res() res) {
+    async delete(@Req() request: Usuarios,@Param('id') id: string, @Res() res, Data: Data) {
         this.usuarioService.delete(id)
         console.log(res.user)
         return res.status(HttpStatus.OK).json({

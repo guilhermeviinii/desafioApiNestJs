@@ -34,9 +34,11 @@ User Admin
         "senha": "admin,
       }
 
+Após efetuar o login usar o acess_token gerado para ter autorização para os outros caminhos referencia -> http://localhost:3000/usuarios
+
 
 ```
 ## Note
  <p> É necessário criar uma conta primeiro, role default = "user" (Não possui direitos para deletar, atulizar. Apenas visualizar). </p>
 
-<p>Para devidos testes usar user Admin!</p>
+<p>Para devidos testes usar conta de administrador!</p>
