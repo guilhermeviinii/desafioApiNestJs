@@ -10,6 +10,7 @@ import { UsuarioService } from './shared/usuario.service';
 import { Usuarios } from './shared/usuarios';
 
 
+
 @Controller('usuarios')
 export class UsuariosController {
     constructor(
@@ -33,6 +34,7 @@ export class UsuariosController {
     async getById(@Param('id') id: string): Promise<Usuarios> {
         return this.usuarioService.getById(id);
     }
+    
     @Post()
     async create(@Body() usuario: Usuarios, @Res() res): Promise<Usuarios> {
         if (!usuario.role) {
