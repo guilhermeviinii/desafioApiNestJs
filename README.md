@@ -31,7 +31,7 @@ User Admin
  JSON for Login
       {
         "usuario": "admin",
-        "senha": "admin,
+        "senha": "admin"
       }
 
 Após efetuar o login usar o acess_token gerado para ter autorização para os outros caminhos referencia -> http://localhost:3000/usuarios
